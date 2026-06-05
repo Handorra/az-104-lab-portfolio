@@ -34,3 +34,8 @@ New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile 
 $today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addSkuParameter-"+"$today"
 New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile -storageName {your-unique-name} -storageSKU Standard_GRS
+
+#deploy the ARM template with an outputs
+$today=Get-Date -Format "MM-dd-yyyy"
+$deploymentName="addOutputs-"+"$today"
+New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile -storageName {your-unique-name} -storageSKU Standard_LRS
