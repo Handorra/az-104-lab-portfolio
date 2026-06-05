@@ -17,3 +17,7 @@ $today=Get-Date -Format "MM-dd-yyyy"
 $deploymentName="addstorage-"+"$today"
 New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile
 
+#deploy the updated ARM template that includes parameters for dynamic storage naming depending on storage account type
+templateFile="azuredeploy.json"
+az deployment group create --name testdeployment1 --template-file $templateFile --parameters storageAccountType=Standard_LRS
+
