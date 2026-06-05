@@ -23,3 +23,14 @@ New-AzResourceGroupDeployment -Name testdeployment1 -TemplateFile $templateFile 
 
 #deploy the updated ARM template that includes outputs 
 New-AzResourceGroupDeployment -Name testdeployment1 -TemplateFile $templateFile -storageAccountType Standard_LRS
+
+#deploy the updated ARM template that includes a parameter for storageName
+$templateFile="azuredeploy.json"
+$today=Get-Date -Format "MM-dd-yyyy"
+$deploymentName="addnameparameter-"+"$today"
+New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile -storageName staz2
+
+#deploy the updated ARM template that includes a parameter for storageSKU
+$today=Get-Date -Format "MM-dd-yyyy"
+$deploymentName="addSkuParameter-"+"$today"
+New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile -storageName {your-unique-name} -storageSKU Standard_GRS
