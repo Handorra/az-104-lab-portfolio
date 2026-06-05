@@ -18,6 +18,8 @@ $deploymentName="addstorage-"+"$today"
 New-AzResourceGroupDeployment -Name $deploymentName -TemplateFile $templateFile
 
 #deploy the updated ARM template that includes parameters for dynamic storage naming depending on storage account type
-templateFile="azuredeploy.json"
-az deployment group create --name testdeployment1 --template-file $templateFile --parameters storageAccountType=Standard_LRS
+$templateFile="azuredeploy.json"
+New-AzResourceGroupDeployment -Name testdeployment1 -TemplateFile $templateFile -storageAccountType Standard_LRS
 
+#deploy the updated ARM template that includes outputs 
+New-AzResourceGroupDeployment -Name testdeployment1 -TemplateFile $templateFile -storageAccountType Standard_LRS

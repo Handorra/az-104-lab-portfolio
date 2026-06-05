@@ -33,5 +33,10 @@
     }
   }
 ],
-  "outputs": {}
+"outputs": {
+  "storageEndpoint": {
+    "type": "object",
+    "value": "[reference('staz2').primaryEndpoints]"
+  }
+}
 }
